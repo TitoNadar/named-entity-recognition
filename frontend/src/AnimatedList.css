@@ -1,0 +1,30 @@
+
+   .animated-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 70%;
+  }
+  
+  .animated-list table {
+    border-collapse: collapse;
+    width: 50%;
+  }
+  
+  .animated-list th,
+  .animated-list td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .animated-list th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  .animated-list .entity {
+    font-weight: bold;
+  }
+  

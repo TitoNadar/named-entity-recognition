@@ -13,6 +13,17 @@
   }
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.element1,
+.element2 {
+  width: 50%;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
