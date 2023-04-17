@@ -14,9 +14,25 @@ const App = () => {
     event.preventDefault();
     setLoading(true);
 
+    const inputText = ''
+    const apiUrl = `http://localhost:5000/ner?inputText=${inputText}`;
+
+    
+    if(algorithm === 'BERT + CRF') {
+      apiUrl = `http://localhost:5000/ner?inputText=${inputText}`;
+    }
+    else if(algorithm === 'BiLSTM + CRF') {
+      apiUrl = `http://localhost:5000/ner?inputText=${inputText}`;
+    }
+    else if(algorithm === 'Flair') {
+      apiUrl = `http://localhost:5000/ner?inputText=${inputText}`;
+    }
+    else {
+
+    }
+
     // Call API with inputText and algorithm
-    const apiUrl = `http://localhost:5000?inputText=${inputText}&algorithm=${algorithm}`;
-    // const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl);
     // const resultData = await response.json();
 
     const resultData = {};
