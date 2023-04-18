@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import torch
-from transformers import AutoTokenizer, AutoModelForTokenClassification, BertTokenizer
+from transformers import AutoTokenizer, AutoModelForTokenClassification
 
 '''
 To hit the API, send request to http://localhost:5000/bert_crf with body as json of input string {text: value}
