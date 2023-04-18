@@ -28,9 +28,9 @@ The frontend of the application is built using React.js, a popular JavaScript li
 ### **Contributing**
 We welcome contributions from the community. If you would like to contribute to the project, please follow these steps:
 
--Item1 Fork the repository and create a new branch for your changes.
--Item2 Make your changes and submit a pull request.
-_Item3 We will review your changes and merge them if they are a good fit for the project.
+-Item 1 Fork the repository and create a new branch for your changes.
+-Item 2 Make your changes and submit a pull request.
+-Item 3 We will review your changes and merge them if they are a good fit for the project.
 
 ### **Acknowledgements**
 We would like to thank the creators of the CoNLL-2003 dataset for providing the data that we used to train and evaluate our algorithms. We would also like to thank the developers of the ACE, Flair, and CRF++ libraries for their contributions to the field of natural language processing.
