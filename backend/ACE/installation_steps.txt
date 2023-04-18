@@ -1,0 +1,9 @@
+** python >=3.7 required (3.8 tested)
+
+python venv aceenv
+.\aceenv\Scripts\activate
+pip install seqeval git+https://github.com/huggingface/transformers.git
+pip install torch
+pip install spacy
+python -m spacy download en_core_web_sm
+python .\api.py

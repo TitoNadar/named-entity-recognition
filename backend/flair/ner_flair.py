@@ -4,11 +4,10 @@ from flair.nn import Classifier
 import flair
 import json
 
+tagger = None
+
 def recognizer(sent):
-
     sentence = Sentence(sent)
-    tagger = Classifier.load('ner-large')
-
     tagger.predict(sentence)
     
     entities = []
@@ -34,6 +33,7 @@ def ner_flair():
     return jsonify(entities)
 
 if __name__ == '__main__':
+    tagger = Classifier.load('ner')
     app.run()
 
 

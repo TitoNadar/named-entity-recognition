@@ -14,52 +14,116 @@ const App = () => {
     event.preventDefault();
     setLoading(true);
 
-    const inputText = ''
-    const apiUrl = `http://localhost:5000/ner?inputText=${inputText}`;
-
-    
     if(algorithm === 'BERT + CRF') {
-      apiUrl = `http://localhost:5000/ner?inputText=${inputText}`;
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      
+      var raw = JSON.stringify({
+        "text": inputText
+      });
+      
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+      
+      fetch("http://localhost:5000/bert_crf ", requestOptions)
+        .then(response => response.text())
+        .then(result => setResult(result))
+        .catch(error => console.log('error', error));
     }
     else if(algorithm === 'BiLSTM + CRF') {
-      apiUrl = `http://localhost:5000/ner?inputText=${inputText}`;
+      var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "text": inputText
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://localhost:5000/bilstm_crf", requestOptions)
+  .then(response => response.text())
+  .then(result => setResult(result))
+  .catch(error => console.log('error', error));
     }
     else if(algorithm === 'Flair') {
-      apiUrl = `http://localhost:5000/ner?inputText=${inputText}`;
+      var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "text": inputText
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://localhost:5000/flair", requestOptions)
+  .then(response => response.text())
+  .then(result => setResult(result))
+  .catch(error => console.log('error', error));
     }
     else {
-
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      
+      var raw = JSON.stringify({
+        "text": inputText
+      });
+      
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+      
+      fetch("http://localhost:5000/ace", requestOptions)
+        .then(response => response.text())
+        .then(result => setResult(result))
+        .catch(error => console.log('error', error));
     }
 
     // Call API with inputText and algorithm
-    const response = await fetch(apiUrl);
+    // const response = await fetch(apiUrl);
     // const resultData = await response.json();
 
-    const resultData = {};
-    resultData.result = [
-      {
-        "entity": "PER",
-        "text": "Barack Obama"
-      },
-      {
-        "entity": "LOC",
-        "text": "United  States"
-      },
-      {
-        "entity": "PER",
-        "text": "Michelle Obama"
-      },
-      {
-        "entity": "PER",
-        "text": "Sasha"
-      },
-      {
-        "entity": "PER",
-        "text": "Malia"
-      }
-    ]
+    // const resultData = {};
+    // resultData.result = [
+    //   {
+    //     "entity": "PER",
+    //     "text": "Barack Obama"
+    //   },
+    //   {
+    //     "entity": "LOC",
+    //     "text": "United  States"
+    //   },
+    //   {
+    //     "entity": "PER",
+    //     "text": "Michelle Obama"
+    //   },
+    //   {
+    //     "entity": "PER",
+    //     "text": "Sasha"
+    //   },
+    //   {
+    //     "entity": "PER",
+    //     "text": "Malia"
+    //   }
+    // ]
 
-    setResult(resultData.result);
+    // setResult(resultData.result);
     setLoading(false);
   };
 
@@ -90,7 +154,7 @@ const App = () => {
         <h1 style={{ fontSize: '36px', fontWeight: 'bold', color: '#4CAF50', marginBottom: '20px' }}>Named Entity Recognition</h1>
         <label htmlFor="inputText" style={{ fontSize: '24px', fontWeight: 'bold', color: 'black', marginBottom: '20px' }}>
           Input Text
-          <textarea id="inputText" name="inputText" rows="6" style={{ padding: '10px', width: '100%', borderRadius: '10px', border: 'none', marginTop: '10px', fontSize: '20px', resize: 'none', outline: 'none' }} value={inputText} onChange={(e) => setInputText(e.target.value)} required />
+          <textarea id="inputText" name="inputText" rows="6" style={{ padding: '10px', width: '100%', borderRadius: '10px', border: 'none', marginTop: '10px', fontSize: '20px', resize: 'none', outline: 'none',height:'430px' }} value={inputText} onChange={(e) => setInputText(e.target.value)} required />
         </label>
         <label htmlFor="algorithm" style={{ fontSize: '24px', fontWeight: 'bold', color: 'black', marginBottom: '20px' }}>
           Algorithm
@@ -110,13 +174,7 @@ const App = () => {
       </animated.form>
       {result && (
         <AnimatedList className="element2"
-        entities={[
-          { entity: 'PER', text: 'Barack Obama' },
-          { entity: 'LOC', text: 'United States' },
-          { entity: 'PER', text: 'Michelle Obama' },
-          { entity: 'PER', text: 'Sasha' },
-          { entity: 'PER', text: 'Malia' },
-        ]}
+        inputEntity={JSON.parse(result)}
         />
       )}
 

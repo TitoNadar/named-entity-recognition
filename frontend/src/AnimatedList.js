@@ -45,6 +45,9 @@ const data = [
 ];
 
 const Item = ({ item, index }) => {
+  if(item === null || item.entity === 'O') {
+    return null;
+  }
   return (
     <animated.tr key={index} className="animated-item">
       <td className="entity">{item.entity}</td>
@@ -53,7 +56,8 @@ const Item = ({ item, index }) => {
   );
 };
 
-const AnimatedList = () => {
+const AnimatedList = ({inputEntity}) => {
+  console.log("entitu ", typeof inputEntity);
   return (
     <div className="animated-list">
       <table>
@@ -64,7 +68,7 @@ const AnimatedList = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {inputEntity.map((item, index) => (
             <Item key={index} item={item} index={index} />
           ))}
         </tbody>
