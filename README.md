@@ -4,7 +4,7 @@ This project is a web-based application that uses four different algorithms (ACE
 ###  **Getting Started**
 To use the application, you will need to install the required dependencies and start the local server. Follow these steps:
 
-#### Backend
+#### BackEnd
 The requirements for all the 4 algorithms is mentioned below:
 1) ACE - The requirement instructions can be found in the path: named-entity-recognition/code/backend/ACE/requirements.txt
 2) Bert + CRF - The instructions can be found in the path: named-entity-recognition/code/backend/bert_crf/README.md
