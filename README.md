@@ -4,12 +4,16 @@ This project is a web-based application that uses four different algorithms (ACE
 ###  **Getting Started**
 To use the application, you will need to install the required dependencies and start the local server. Follow these steps:
 
-Install Python 3.x on your computer if you haven't already.
-1.Clone this repository to your local machine.
-Install the required Python packages by running pip install -r requirements.txt.
-Start the Flask server by running python app.py.
-Open your web browser and navigate to http://localhost:5000.
-Usage
+#### Backend
+The requirements for all the 4 algorithms is mentioned below:
+1) ACE - The requirement instructions can be found in the path: named-entity-recognition/code/backend/ACE/requirements.txt
+2) Bert + CRF - The instructions can be found in the path: named-entity-recognition/code/backend/bert_crf/README.md
+3) BiLSTM + CRF - The version instructions can be found in the path: named-entity-recognition/code/backend/seqtag-keras/packages.txt and the python version should be 3.6
+4) Flair - The requirement instructions can be found in the path: named-entity-recognition/code/backend/flair/readme.txt
+
+
+#### FrontEnd
+The requirement instructions can be found in the path: named-entity-recognition/code/frontend/README.md
 
 ### **Usage**
 Once you have the application up and running, you can enter text in the input field and click the "Submit" button to obtain information about the named entities in the text. The application will display the recognized named entities along with their types (e.g., person, location, organization) and the algorithm that was used to identify them.
@@ -28,9 +32,9 @@ The frontend of the application is built using React.js, a popular JavaScript li
 ### **Contributing**
 We welcome contributions from the community. If you would like to contribute to the project, please follow these steps:
 
--Item 1 Fork the repository and create a new branch for your changes.
--Item 2 Make your changes and submit a pull request.
--Item 3 We will review your changes and merge them if they are a good fit for the project.
+1) Fork the repository and create a new branch for your changes.
+2) Make your changes and submit a pull request.
+3) We will review your changes and merge them if they are a good fit for the project.
 
 ### **Acknowledgements**
 We would like to thank the creators of the CoNLL-2003 dataset for providing the data that we used to train and evaluate our algorithms. We would also like to thank the developers of the ACE, Flair, and CRF++ libraries for their contributions to the field of natural language processing.
