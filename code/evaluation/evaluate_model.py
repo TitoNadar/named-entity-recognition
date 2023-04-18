@@ -154,7 +154,7 @@ def evaluate(model, tokenizer):
         entity_spans = [example["entity_spans"] for example in batch_examples]
 
         inputs = tokenizer(texts, entity_spans=entity_spans, return_tensors="pt", padding=True)
-        inputs = inputs.to("cuda")
+        # inputs = inputs.to("cuda")
         with torch.no_grad():
             outputs = model(**inputs)
         all_logits.extend(outputs.logits.tolist())
